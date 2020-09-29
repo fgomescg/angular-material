@@ -1,0 +1,18 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+  <mat-card fxFlex="500px" fxFlex.xs="100%">
+      <mat-card-title>Details for the clicked book</mat-card-title>
+      <mat-card-content>
+        <div fxLayout="column wrap" fxLayoutGap="40px">
+          <div fxLayout="row wrap" fxFlex>
+            <div fxFlex><strong>Titulo:</strong></div>
+            <div fxFlex>{{book?.title}}</div>
+          </div>
+
+          <div fxLayout="row wrap" fxFlex>
+            <div fxFlex><strong>Editora:</strong></div>
+            <div fxFlex>{{book?.company | date}}</div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+</section>

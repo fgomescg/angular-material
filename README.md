@@ -44,3 +44,21 @@ ng g component book/book-list --skipTests
 
 //criando modulo de rota para livro 
 ng g module book/book-routing --module owner
+
+//criando componente para página não encontrada
+ng g component error-pages/not-found --skipTests
+
+//criando componente para página de erro
+ng g component error-pages/server-error --skipTests
+
+//criando serviço de error handler
+ng g service shared/error-handler --skipTests
+
+//componente de detalhes de livro
+ng g component book/book-details --skipTests
+
+//
+ng g component book/book-details/book-data --skipTests
+
+
+ng g component book/book-create --skipTests

@@ -1,0 +1,47 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+  <mat-card fxFlex="500px" fxFlex.xs="100%">
+    <mat-card-title>Create a new book</mat-card-title>
+      <form [formGroup]="bookForm" autocomplete="off" novalidate (ngSubmit)="createBook(bookForm.value)" fxLayout="column wrap"
+      fxLayoutAlign="center center" fxLayoutGap="10px">
+      <mat-card-content>
+        <mat-form-field>
+          <input matInput type="text" placeholder="Titulo do livro" formControlName="title" id="title">
+          <mat-hint align="end">Tamanho máximo 40 caractéres</mat-hint>
+          <mat-error *ngIf="hasError('name', 'required')">Título é obrigatório</mat-error>
+          <mat-error *ngIf="hasError('name', 'maxlength')">Tamanho máximo 40 caractéres</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" placeholder="Editora" formControlName="company" id="company">
+          <mat-hint align="end">Tamanho máximo 40 caractéres</mat-hint>
+          <mat-error *ngIf="hasError('company', 'required')">Editora é obrigatório</mat-error>
+          <mat-error *ngIf="hasError('company', 'maxlength')">Tamanho máximo 40 caractéres</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="number" placeholder="Edição" formControlName="edition" id="edition">
+          <mat-error *ngIf="hasError('edition', 'required')">Número de edição é obrigatório</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" placeholder="Ano de publicação" formControlName="publishYear" id="publishYear">
+          <mat-hint align="end">Tamanho máximo 4 caractéres</mat-hint>
+          <mat-error *ngIf="hasError('publishYear', 'required')">Ano é obrigatório</mat-error>
+          <mat-error *ngIf="hasError('publishYear', 'maxlength')">Tamanho máximo 4 caractéres</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" placeholder="Valor" formControlName="value" id="value" [ngModel]="0 | currency:'USD':'symbol':'2.2'" (blur)="updateBRLAmount($event)">
+          <mat-hint align="end">Tamanho máximo 4 caractéres</mat-hint>
+          <mat-error *ngIf="hasError('publishYear', 'required')">Ano é obrigatório</mat-error>
+          <mat-error *ngIf="hasError('publishYear', 'maxlength')">Tamanho máximo 4 caractéres</mat-error>
+        </mat-form-field>
+
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" [disabled]="!bookForm.valid">Salvar</button>
+        <button type="button" mat-raised-button color="warn" (click)="onCancel()">Cancelar</button>
+      </mat-card-actions>
+      </form>
+    </mat-card>
+</section>
